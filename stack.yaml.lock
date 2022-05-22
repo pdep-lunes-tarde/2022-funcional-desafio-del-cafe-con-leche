@@ -9,15 +9,15 @@ packages:
     version: 0.2.0.0
     git: https://github.com/10Pines/pdepreludat.git
     pantry-tree:
-      size: 2542
-      sha256: e7f11193d43e5f65aacc57f110e9926a5ad50359b12f166f68bc6006465426e8
-    commit: f75808872dd3bfaafd55ba4b7a1be6b870b918a2
+      size: 2645
+      sha256: 9208da3278cecee826122693b6c252984e87807c8b904eed750ca43d014d11ac
+    commit: 7c89e5d9171c6e9233c2b3592bc66696587b87e1
   original:
     git: https://github.com/10Pines/pdepreludat.git
-    commit: f75808872dd3bfaafd55ba4b7a1be6b870b918a2
+    commit: 7c89e5d9171c6e9233c2b3592bc66696587b87e1
 snapshots:
 - completed:
-    size: 534126
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/16/31.yaml
-    sha256: 637fb77049b25560622a224845b7acfe81a09fdb6a96a3c75997a10b651667f6
-  original: lts-16.31
+    size: 586069
+    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/18/14.yaml
+    sha256: 87842ecbaa8ca9cee59a7e6be52369dbed82ed075cb4e0d152614a627e8fd488
+  original: lts-18.14

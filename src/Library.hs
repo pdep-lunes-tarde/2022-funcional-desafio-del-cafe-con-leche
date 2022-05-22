@@ -22,6 +22,10 @@ import Prelude (foldr, sum, elem, all, Foldable(..))
 
 data ArbolBinario a = ArbolBinario a (ArbolBinario a) (ArbolBinario a) | Vacio
 
+-- agregamos la función hoja también para poder escribir más fácilmente las hojas del arbol:
+hoja :: a -> ArbolBinario a
+hoja valor = ArbolBinario valor Vacio Vacio
+
 -- Entonces, si quisiesemos representar un arbol como este:
 --            "hola"
 --           /   |
@@ -32,10 +36,9 @@ data ArbolBinario a = ArbolBinario a (ArbolBinario a) (ArbolBinario a) | Vacio
 --               "."
 -- lo podríamos escribir como:
 holaSoyElArbol :: ArbolBinario String
-holaSoyElArbol = ArbolBinario "hola" (ArbolBinario "soy" Vacio Vacio)
-                                     (ArbolBinario "el" (ArbolBinario "arbol" Vacio Vacio)
-                                                        (ArbolBinario "binario" (ArbolBinario "." Vacio)
-                                                                                Vacío))
+holaSoyElArbol = ArbolBinario "hola" (hoja "soy")
+                                     (ArbolBinario "el" (hoja "arbol")
+                                                        (ArbolBinario "binario" (hoja ".") Vacio))
 
 -- Algo que no vimos durante la cursada es que foldr en realidad es parte de una typeclass,
 -- Foldable, o sea que no solo las listas se pueden foldear.
