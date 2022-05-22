@@ -2,54 +2,40 @@ module Library where
 import PdePreludat hiding (foldr, sum, elem, all)
 import Prelude (foldr, sum, elem, all, Foldable(..))
 
--- Desafio 1: Look and say, o https://es.wikipedia.org/wiki/Constante_de_Conway
---
--- Construir la siguiente sucesión:
--- 1
--- 11
--- 21
--- 1211
--- 111221
--- 312211
--- etc...
--- 
+-- Desafío, implementar la función aplicación, que recibe una función y un valor y aplica el valor como parámetro a la función.
+-- El desafío es que hay que implementarlo sin escribir parámetros, ni usar lambdas ni definir funciones auxiliares.
+-- Por ej., estas definiciones NO valen:
+-- ($) funcion valor = funcion valor -- porque estan los parametros
+-- ($) = \funcion valor -> funcion valor -- porque esta usando una lambda
+-- aplicar funcion valor = funcion valor -- porque se esta definiendo una funcion auxiliar 
+-- ($) = aplicar
+-- Tampoco vale importarlo (ahora se está no importando al hacer hiding (($)))
 
-lookAndSay :: [Number]
-lookAndSay = implementame 
+($) :: (a -> b) -> a -> b
+($) = implementame
 
 --------------------------------------------------------------------
 
--- Desafio 2: Un foldr para una flor
+-- Desafio 2: Foldr para arbol B
 --
--- En computación, un "rose tree" es un árbol donde cada nodo puede tener una
--- cantidad ilimitada de nodos hijos.
+-- En computación, un arbol binario es un árbol donde cada nodo puede tener 0, uno o dos hijos.
 
-data RoseTree a = RoseTree a [RoseTree a]
+data ArbolBinario a = ArbolBinario a (ArbolBinario a) (ArbolBinario a) | Vacio
 
 -- Entonces, si quisiesemos representar un arbol como este:
 --            "hola"
---           /   |    \
---       "soy" "el" "arbol"
+--           /   |
+--       "soy" "el"
+--              /\
+--        "arbol" "binario"
+--                  /
+--               "."
 -- lo podríamos escribir como:
-holaSoyElArbol = RoseTree "hola" [RoseTree "soy" [],
-                                  RoseTree "el" [],
-                                  RoseTree "arbol" []]
-
--- y para mostrar otro mas complicado,
---             5
---          / / \ \  \
---         2 3  1 7   9
---        / \   |   / | \
---      10  11  4  0  6  20 
--- lo podríamos escribir como:
-otroArbol = RoseTree 5 [RoseTree 2 [RoseTree 10 [],
-                                    RoseTree 11 []],
-                        RoseTree 3 [],
-                        RoseTree 1 [RoseTree 4 []],
-                        RoseTree 7 [],
-                        RoseTree 9 [RoseTree 0 [],
-                                    RoseTree 6 [],
-                                    RoseTree 20 []]]
+holaSoyElArbol :: ArbolBinario String
+holaSoyElArbol = ArbolBinario "hola" (ArbolBinario "soy" Vacio Vacio)
+                                     (ArbolBinario "el" (ArbolBinario "arbol" Vacio Vacio)
+                                                        (ArbolBinario "binario" (ArbolBinario "." Vacio)
+                                                                                Vacío))
 
 -- Algo que no vimos durante la cursada es que foldr en realidad es parte de una typeclass,
 -- Foldable, o sea que no solo las listas se pueden foldear.
@@ -62,5 +48,9 @@ otroArbol = RoseTree 5 [RoseTree 2 [RoseTree 10 [],
 --
 -- Y algo interesante es que al implementar el foldr algunas funciones (como sum, all, any y elem)
 -- las vamos a tener "gratis" para este tipo.
-instance Foldable RoseTree where
+
+-- Nota: hay 3 implementaciones validas para el foldr, cada una va a hacer que el arbol se recorra
+-- de una forma diferente: prefija, infija o postfija. Cualquier forma es válida para resolver
+-- el desafío.
+instance Foldable ArbolBinario where
   foldr = implementame
