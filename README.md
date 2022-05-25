@@ -4,9 +4,7 @@
 
 Estos ejercicios son totalmente opcionales y son más complicados de los que normalmente mandamos como TPs.
 
-Quienes logren cada uno de los desafíos va a tener un premio. Usualmente era un café con leche o algo de precio similar del buffet de la facu, pero como eso ahora esta complicado, el premio será decidido en el futuro o será lo que hay en esta caja
-
-![Sr Burns sosteniendo una caja](https://pbs.twimg.com/media/CFiFpA_W8AADHWc.jpg)
+Quienes logren cada uno de los desafíos va a tener un premio que puede ser un café con leche con medialunas (o algo de valor menor o igual) del buffet.
 
 # ¿Cómo aviso cuando lo tenga resuelto?
 
@@ -16,10 +14,10 @@ Sobre este repo no tienen permiso de escritura, lo pueden clonar, pero no pueden
 
 ![](https://i.imgur.com/p2FKUPJ.png)
 
-## Look and say / constante de Conway
+## $
 
 - 
 
-## Un foldr para una flor
+## Fold del árbol binario
 
 - 
