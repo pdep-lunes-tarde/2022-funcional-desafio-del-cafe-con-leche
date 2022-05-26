@@ -53,7 +53,8 @@ holaSoyElArbol = ArbolBinario "hola" (hoja "soy")
 -- las vamos a tener "gratis" para este tipo.
 
 -- Nota: hay 3 implementaciones validas para el foldr, cada una va a hacer que el arbol se recorra
--- de una forma diferente: prefija, infija o postfija. Cualquier forma es válida para resolver
--- el desafío.
+-- de una forma diferente: prefija, infija o postfija. En este desafío, les pedimos que lo recorran
+-- de forma prefija.
+
 instance Foldable ArbolBinario where
   foldr = implementame

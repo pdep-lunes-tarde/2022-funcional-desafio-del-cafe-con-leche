@@ -18,7 +18,7 @@ correrTests = hspec P.$ do
     it "cuando el arbol tiene hijos los foldea segun la funcion dada" P.$ do
       foldr (*) 2 (ArbolBinario 5 (hoja 5) (hoja 3)) `shouldBe` 150
     it "cuando el arbol tiene subarboles los foldea segun la funcion dada" P.$ do
-      foldr (++) "." (ArbolBinario "hola" (ArbolBinario "," (hoja " ") (ArbolBinario "como" (hoja "va") (hoja "?")))
+      foldr (++) "." (ArbolBinario "hola" (ArbolBinario "," (hoja " ") (ArbolBinario "como" (ArbolBinario " " (hoja "va") Vacio) (hoja "?")))
                                           (ArbolBinario " " (ArbolBinario "yo" (hoja " ") (hoja "todo")) (ArbolBinario " " (hoja "bien") Vacio))) `shouldBe` "hola, como va? yo todo bien."
     it "las funciones basadas en el foldr tambien funcionan correctamente" P.$ do
       sum (ArbolBinario 5 (hoja 5) (hoja 3)) `shouldBe` 13
